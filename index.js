@@ -7,7 +7,7 @@ const { Server } = require("socket.io");
 
 app.use(express.json());
 app.use(cors({
-  origin: "https://task5-mail-client.herokuapp.com/"
+  origin: "https://task5-mail-client.herokuapp.com"
 }));
 
 const db = mysql.createConnection({
@@ -21,7 +21,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "https://task5-mail-client.herokuapp.com/",
+    origin: "https://task5-mail-client.herokuapp.com",
     methods: ["GET", "POST"],
   },
 });
