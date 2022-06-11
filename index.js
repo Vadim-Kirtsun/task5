@@ -9,17 +9,17 @@ app.use(express.json());
 app.use(cors());
 
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'VAD666',
-  database: 'task5db'
+  host: 'eu-cdbr-west-02.cleardb.net',
+  user: 'b18ddfc7ae1b6f',
+  password: '2d1e07b8',
+  database: 'heroku_5076e19ba6fe1a9'
 });
 
 const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "https://task5-mail-client.herokuapp.com/",
     methods: ["GET", "POST"],
   },
 });
@@ -75,6 +75,6 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(3001, () => {
+server.listen(process.env.PORT, () => {
   console.log("SERVER RUNNING");
 });
