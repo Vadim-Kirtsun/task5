@@ -6,7 +6,9 @@ const cors = require("cors");
 const { Server } = require("socket.io");
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: "https://task5-mail-client.herokuapp.com/"
+}));
 
 const db = mysql.createConnection({
   host: 'eu-cdbr-west-02.cleardb.net',
